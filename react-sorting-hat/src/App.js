@@ -1,7 +1,8 @@
 import React from "react";
 
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import { Normalize } from "styled-normalize";
+import { Button } from "@smooth-ui/core-sc";
 
 import HogwartsImage from "./assets/hogwarts.jpg";
 import HarryPotterFont from "./assets/fonts/ParryHotter.ttf";
@@ -18,6 +19,8 @@ const GlobalStyle = createGlobalStyle`
    }
 
    * {
+      color: white;
+
       font-family: 'HarryPotter', sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -31,17 +34,15 @@ const GlobalStyle = createGlobalStyle`
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      color: white;
    }
 
    body {
-      height: 100vh;
       margin: 0;
       background-color: #00000090;
    }
 
    h1 {
-      font-size: 5rem;
+      font-size: 6rem;
    }
 
    h2 {
@@ -66,6 +67,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const AppContainer = styled(FlexContainer)`
+   height: 100vh;
    margin: 0 auto;
    padding: 30px 5px;
 
@@ -77,11 +79,13 @@ const AppContainer = styled(FlexContainer)`
 class App extends React.Component {
    render() {
       return (
-         <AppContainer>
-            <Normalize />
-            <GlobalStyle />
-            <WelcomeBanner />
-         </AppContainer>
+         <ThemeProvider theme={{}}>
+            <AppContainer>
+               <Normalize />
+               <GlobalStyle />
+               <WelcomeBanner />
+            </AppContainer>
+         </ThemeProvider>
       );
    }
 }
