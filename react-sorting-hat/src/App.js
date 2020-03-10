@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import { Normalize } from "styled-normalize";
-import { Button } from "@smooth-ui/core-sc";
 
 import HogwartsImage from "./assets/hogwarts.jpg";
 import HarryPotterFont from "./assets/fonts/ParryHotter.ttf";
@@ -30,15 +29,10 @@ const GlobalStyle = createGlobalStyle`
 
    html {
       background-color: black;
-      background: url(${HogwartsImage});
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
    }
 
    body {
       margin: 0;
-      background-color: #00000090;
    }
 
    h1 {
@@ -66,7 +60,14 @@ const GlobalStyle = createGlobalStyle`
    }
 `;
 
-const AppContainer = styled(FlexContainer)`
+const LandingPage = styled.div`
+   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1)),
+      url(${HogwartsImage});
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+`;
+const LandingContainer = styled(FlexContainer)`
    height: 100vh;
    margin: 0 auto;
    padding: 30px 5px;
@@ -76,15 +77,28 @@ const AppContainer = styled(FlexContainer)`
    align-items: center;
 `;
 
+const QuizPage = styled.div`
+   height: 100vh;
+
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+
+   background: black;
+`;
+
 class App extends React.Component {
    render() {
       return (
          <ThemeProvider theme={{}}>
-            <AppContainer>
-               <Normalize />
-               <GlobalStyle />
-               <WelcomeBanner />
-            </AppContainer>
+            <Normalize />
+            <GlobalStyle />
+            <LandingPage>
+               <LandingContainer>
+                  <WelcomeBanner />
+               </LandingContainer>
+            </LandingPage>
+            <QuizPage></QuizPage>
          </ThemeProvider>
       );
    }

@@ -30,7 +30,7 @@ const StyledBanner = styled.div`
       cursor: pointer;
 
       h1,
-      h4 {
+      h3 {
          color: #ffffff80 !important;
       }
    }
@@ -48,10 +48,14 @@ const DisplayHeader = styled.h1`
 
 const TextBox = styled.div`
    width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 
-   h4 {
-      text-align: right;
-      padding-right: 3rem;
+   h3 {
+      text-align: center;
+      word-spacing: 0.4rem;
+      padding: 1rem 0 0.75rem;
    }
 `;
 
@@ -72,7 +76,7 @@ const WelcomeBanner = () => {
          />
          <TextBox>
             <DisplayHeader>Which house do you belong to?</DisplayHeader>
-            <h4>Harry Potter™</h4>
+            <h3>Harry Potter™</h3>
          </TextBox>
       </StyledBanner>
    );
