@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { Normalize } from "styled-normalize";
 
-import HogwartsImage from "./assets/hogwarts.jpg";
 import HarryPotterFont from "./assets/fonts/ParryHotter.ttf";
 
-import FlexContainer from "./components/styles/Containers";
-import WelcomeBanner from "./components/WelcomeBanner";
+import Welcome from "./components/Welcome";
+import Quiz from "./components/Quiz";
 
 const GlobalStyle = createGlobalStyle`
    @font-face {
@@ -20,7 +19,6 @@ const GlobalStyle = createGlobalStyle`
    * {
       color: white;
 
-      font-family: 'HarryPotter', sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       
@@ -33,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
 
    body {
       margin: 0;
+      font-family: 'HarryPotter', sans-serif;
    }
 
    h1 {
@@ -58,33 +57,10 @@ const GlobalStyle = createGlobalStyle`
    h6 {
       font-size: 1.2rem;
    }
-`;
 
-const LandingPage = styled.div`
-   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1)),
-      url(${HogwartsImage});
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-position: center;
-`;
-const LandingContainer = styled(FlexContainer)`
-   height: 100vh;
-   margin: 0 auto;
-   padding: 30px 5px;
-
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-`;
-
-const QuizPage = styled.div`
-   height: 100vh;
-
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-
-   background: black;
+   p {
+      font-family: 'Sen', sans-serif;
+   }
 `;
 
 class App extends React.Component {
@@ -93,12 +69,8 @@ class App extends React.Component {
          <ThemeProvider theme={{}}>
             <Normalize />
             <GlobalStyle />
-            <LandingPage>
-               <LandingContainer>
-                  <WelcomeBanner />
-               </LandingContainer>
-            </LandingPage>
-            <QuizPage></QuizPage>
+            <Welcome />
+            <Quiz />
          </ThemeProvider>
       );
    }
